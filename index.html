@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hiiiiiiiiii - Kevin -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Upload For Free</title>
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Replace favicon.png with your actual favicon file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            text-align: center;
+            padding: 0 20px; /* Add padding on the sides */
+            box-sizing: border-box; /* Ensure padding doesn't affect the overall width */
+        }
+
+        .large-text {
+            font-size: 10vw;
+            text-align: center;
+            max-width: 100%;
+            word-wrap: break-word;
+            font-weight: bold;
+        }
+
+        .bottom-text {
+            font-size: 10px;
+            text-align: center;
+            max-width: 100%;
+            word-wrap: break-word;
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .dice-container {
+            margin-top: 50px; /* Add margin above the dice */
+        }
+
+        .dice {
+            width: 50px;
+            cursor: pointer;
+            transition: transform 0.1s linear; /* Smooth transition */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="large-text">Upload for Free</div>
+        <a href="goodbye.html">Goodbye, Uploaders</a>
+        <br>
+        <a href="about.html">About</a>
+        <br>
+        <a href="contact.html">Contact</a>
+        <br>
+        <a href="https://www.instagram.com/uploader.network" >Uploader Network</a>
+        <br>
+
+        <div class="dice-container">
+            <img class="dice" src="dice.svg" alt="Dice" onclick="rollDice()">
+
+
+        </div>
+    </div>
+
+    <script>
+    // this was written by ChatGPT lol
+        let currentRotation = 0;
+        let animationFrame;
+
+        const dice = document.querySelector('.dice');
+
+        function spinDice() {
+            currentRotation += 5; // Change this value to control the speed of rotation
+            dice.style.transform = `rotate(${currentRotation}deg)`;
+            animationFrame = requestAnimationFrame(spinDice);
+        }
+
+        dice.addEventListener('mouseover', () => {
+            cancelAnimationFrame(animationFrame);
+            spinDice();
+        });
+
+        dice.addEventListener('mouseout', () => {
+            cancelAnimationFrame(animationFrame);
+        });
+
+        function rollDice() {
+            const links = [
+                'https://www.instagram.com/p/C3PD-t6uBwI/?igsh=aHZpbDVwZG1jcmN2',
+                'https://soar.suny.edu/handle/20.500.12648/15112',
+                'https://web.archive.org/web/20240217150748/https://veryinteractive.net/pdfs/bewersdorf-spiritsurfing.pdf',
+                'https://www.instagram.com/p/CyPvOeLOJ72/?igsh=MTF5d2l1ajJhNDV0dw==',
+                'http://ramocki.net/surfing-clubs.pdf',
+                'https://www.tommoody.us/archives/2013/02/19/phone-call-to-karen-archey/',
+            ];
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            window.open(randomLink, '_blank');
+        }
+    </script>
+</body>
+</html>
